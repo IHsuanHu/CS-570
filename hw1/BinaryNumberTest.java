@@ -13,6 +13,7 @@ public class BinaryNumberTest {
         System.out.println(a.getDigit(3));
         System.out.println(a.toDecimal());
         System.out.println(a.getLength());
+
         
     }
 }
