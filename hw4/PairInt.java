@@ -12,7 +12,6 @@ public class PairInt{
     }
     public int getX() {
         return x;
-
     }
     public int getY() {
         return y;
@@ -25,15 +24,12 @@ public class PairInt{
     }
     
     public boolean equals(Object p) {
-        
         if (p == null || getClass() != p.getClass()){
             return false;
         }
         PairInt pairInt = (PairInt) p;
         return x == pairInt.x && y == pairInt.y;
-        
     }
-    
     public String toString() {
         return "PairInt{ x=" + this.x + ", y=" + this.y +"}";
     }

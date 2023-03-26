@@ -30,19 +30,23 @@ public class Maze implements GridColors {
    */
   public boolean findMazePath(int x, int y) {
     // COMPLETE HERE FOR PROBLEM 1
+    //return false if point or path is not in grid
     if(x < 0 || y <0 || x >= maze.getNCols() || y >= maze.getNRows() || !maze.getColor(x,y).equals(NON_BACKGROUND)){
       return false;
+    //return true if the point is at exit
     }else if(x == maze.getNCols() - 1 && y == maze.getNRows() - 1){
       maze.recolor(x,y,GridColors.PATH);
       return true;
     }
+    // the point paint color
       maze.recolor(x,y,GridColors.PATH);
+      // if the next point is exit
       if(findMazePath(x - 1,y) || findMazePath(x + 1, y) || findMazePath(x, y+1) || findMazePath(x, y -1)){
         return true;
-      }else{
-        maze.recolor(x,y,GridColors.TEMPORARY);
-        return false;
-    }
+      }
+      // recolor current point to TEMPORARY
+      maze.recolor(x,y,GridColors.TEMPORARY);
+      return false;
   }
 
   // ADD METHOD FOR PROBLEM 2 HERE
@@ -58,14 +62,17 @@ public class Maze implements GridColors {
     if(maze.getColor(x,y).equals(NON_BACKGROUND)){
       return;
     }else if(x == maze.getNCols() - 1 && y == maze.getNRows() - 1){
+      // add point to trace, add trace to result
       ArrayList<PairInt> temp = new ArrayList<>();
       temp.add(0, new PairInt(x, y));
       temp.addAll(0, trace);
       result.add(temp);
       return;
     }
+      // push point to trace
       trace.push(new PairInt(x,y));
       maze.recolor(x,y,GridColors.PATH);
+      // using recursion to find neighbors
       findMazePathStackBased(x + 1, y, result, trace);
       findMazePathStackBased(x, y + 1, result, trace);
       findMazePathStackBased(x - 1, y, result, trace);
@@ -79,10 +86,11 @@ public class Maze implements GridColors {
     ArrayList<ArrayList<PairInt>> paths = findAllMazePaths(x, y);
     int index = 0;
     int min = paths.get(index).size();
+    // to find minimum path from all possible paths
     for (int i = 1; i < paths.size(); i++) {
       if (paths.get(i).size() < min) {
         index = i;
-        minSize = paths.get(i).size();
+        min = paths.get(i).size();
       }
     }
     return paths.get(index);
