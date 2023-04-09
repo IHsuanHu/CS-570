@@ -6,7 +6,31 @@ import java.util.Random;
 public class Treap {
     private  Random priorityGenerator;
     private Node<E> root;
-    
+    public Treap() {
+
+    }
+    public Treap(long seed) {
+
+    }
+    boolean add(E key){
+
+    }
+    boolean add(E key, int priority){
+
+    }
+    boolean delete(E key){
+
+    }
+    private boolean find(Node<E> root, E key){
+
+    }
+    public boolean find(E key){
+
+    }
+    public String toString(){
+
+    }
+
     private static class Node<E>{
         public E data;
         public int priority;
