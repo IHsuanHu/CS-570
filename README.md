@@ -1,4 +1,5 @@
 # CS-570
+## Introduction to Programming, Data Structures, and Algorithms
 
 ## COURSE DESCRIPTION
 This is a course on standard data structures, including sorting and searching and using the Java language. The topics include: programming; testing; recursion; elementary data structures (lists, stacks, queues, and maps); use of elementary data structures in application rameworks; searching; sorting; and introduction to asymptotic complexity analysis.
